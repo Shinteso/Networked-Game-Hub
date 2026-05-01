@@ -20,5 +20,3 @@ The code using an rpc-tcp connection and maniulates function through a transport
 
 # Future things to add
 The few things I wanted to but did not get to are making a single player mode which puts you up against an ai and also figure out how to set this up on a server.
-
-T
