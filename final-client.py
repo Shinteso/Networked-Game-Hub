@@ -73,7 +73,7 @@ while True:
     elif game_to_play == 'ttt':
         play_ttt(client)
     elif game_to_play is None:
-        # receive thread exited without a game — disconnected or quit
+        # receive thread exited without a game - disconnected or quit
         break
 
     print('\n--- Game over! Returning to lobby... ---\n')
