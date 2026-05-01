@@ -50,9 +50,7 @@ def write():
         message = f'{username}: {text}'
         client.send(message.encode('ascii'))
 
-        # Stop write loop locally when game starts or when a player says quit
-        if text.strip().lower() == 'ready':
-            break
+        # Stop write loop locally when a player says quit
         if text.strip().lower() == 'quit':
             print('Disconnecting...')
             client.close()

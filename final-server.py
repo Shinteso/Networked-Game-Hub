@@ -109,12 +109,12 @@ def handle(client):
             
             if text == 'rps':
                 game_choice[index] = 'rps'
-                send_private(client, 'You picked Rock Paper Scissors! Type "ready" when ready to play.\n')
+                send_private(client, 'You picked Rock Paper Scissors! Type "ready" when ready to play and you can unready by typing "unready".\n')
                 print(f'{name} picked rps | Choices: {list(zip(names, game_choice))}')
             
             elif text == 'ttt':
                 game_choice[index] = 'ttt'
-                send_private(client, 'You picked Tic Tac Toe! Type "ready" when ready to play.\n')
+                send_private(client, 'You picked Tic Tac Toe! Type "ready" when ready to play and you can unready by typing "unready".\n')
                 print(f'{name} picked ttt | Choices: {list(zip(names, game_choice))}')
 
             elif text == 'ready':
@@ -129,6 +129,18 @@ def handle(client):
                 print(f'Ready rps: {[names[clients.index(c)] for c in ready_RPS]}')
                 print(f'Ready ttt: {[names[clients.index(c)] for c in ready_TTT]}')
                 check_ready()
+
+            elif text == 'unready':
+                if game_choice[index] == 'rps' and client in ready_RPS:
+                    ready_RPS.remove(client)
+                    send_private(client, 'You are no longer ready.\n')
+                    broadcast(f'[{name} is no longer ready!]')
+                elif game_choice[index] == 'ttt' and client in ready_TTT:
+                    ready_TTT.remove(client)
+                    send_private(client, 'You are no longer ready.\n')
+                    broadcast(f'[{name} is no longer ready!]')
+                else:
+                    send_private(client, 'You are not ready yet.\n')
 
             elif text.startswith('/dm '):
                 parts = message.split(': ', 1)[-1].split(' ', 2) # ['\dm', 'target_name', 'msg']
