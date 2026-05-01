@@ -15,6 +15,7 @@ This project features a minal ui chat hub/lobby and offers two games to play, th
 While in the lobby you can also dm other player by using </dm> <player_name> <msg>
 
 There is also a "queuing" feature in the for of typing ready will put you in a ready state for what ever game you chose until two ppl are ready you can also unready by typing unready.
+
 The code using an rpc-tcp connection and maniulates function through a transport layer and package and unpackage the data using pickle.
 
 # Future things to add
